@@ -44,19 +44,27 @@ class ViewController: UIViewController {
     @IBAction func addTapped(_ sender: Any) {
         
         //create Alert
-        let alert = UIAlertController(title: "Add employee", message: "What's their name?", preferredStyle: .alert)
-        alert.addTextField()
-        
+        let alert = UIAlertController(title: "Add employee", message: "Input employee detail", preferredStyle: .alert)
+        alert.addTextField { (userNameTextField) in
+            userNameTextField.placeholder = "Please input your name"
+        }
+        alert.addTextField { (passwordTextField) in
+            passwordTextField.placeholder = "Please input your marriage status"
+        }
+
         //configure button
         let submitButton = UIAlertAction(title: "Add", style: .default) { (action) in
             
             //get the textfield for the alert
-            let textfield = alert.textFields?[0]
+            let textfieldName = alert.textFields?[0]
+            let textfieldStatus = alert.textFields?[1]
             
             //create an Employee object
             let newEmployee = Employee(context: self.context)
-            newEmployee.name = textfield?.text
-            //newEmployee.isMarried = true
+            newEmployee.name = textfieldName?.text
+            
+            //masih errorrrrrrrrrrrrrrrrr
+            newEmployee.isMarried = Bool((textfieldStatus?.text!)!)!
             
             //save the data
             do {
@@ -75,28 +83,9 @@ class ViewController: UIViewController {
         //show the alert
         self.present(alert, animated: true, completion: nil)
     }
-
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        //return the number of employee
-        return items.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = employeeTable.dequeueReusableCell(withIdentifier: "employeeCell") as! EmployeeTableViewCell
-        
-        //get employee from the array and change the label
-        let employee = self.items[indexPath.row]
-        cell.nameLabel.text = employee.name
-        cell.statusLabel.text = String(employee.isMarried)
-        
-        return cell
-    }
+extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -104,6 +93,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         //create Alert
         let alert = UIAlertController(title: "Edit employee", message: "Change name", preferredStyle: .alert)
+        
         alert.addTextField()
         
         //get the textfield for the alert
@@ -134,7 +124,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         //show the alert
         self.present(alert, animated: true, completion: nil)
-
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -165,7 +154,27 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UISwipeActionsConfiguration(actions: [action])
     }
+}
+
+extension ViewController: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        //return the number of employee
+        return items.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = employeeTable.dequeueReusableCell(withIdentifier: "employeeCell") as! EmployeeTableViewCell
+        
+        //get employee from the array and change the label
+        let employee = self.items[indexPath.row]
+        cell.nameLabel.text = employee.name
+        cell.statusLabel.text = String(employee.isMarried)
+        
+        return cell
+    }
 }
 
 
