@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Employee Status-->
+        <!--Employee Marriage Status-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoreData_UIKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4RI-8D-xFb" secondAttribute="trailing" id="chJ-Pv-lLM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Employee Status" id="wZy-of-Thu">
+                    <navigationItem key="navigationItem" title="Employee Marriage Status" id="wZy-of-Thu">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="bZ7-BM-ly0">
                             <connections>
                                 <action selector="addTapped:" destination="BYZ-38-t0r" id="KEQ-Am-kO8"/>
