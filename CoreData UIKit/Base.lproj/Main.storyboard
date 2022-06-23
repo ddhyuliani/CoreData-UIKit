@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Employee Status-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoreData_UIKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,13 +20,43 @@
                                 <rect key="frame" x="0.0" y="88" width="390" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="employeeCell" rowHeight="81" id="LkG-vO-h3R">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="81"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="employeeCell" rowHeight="58" id="LkG-vO-h3R" customClass="EmployeeTableViewCell" customModule="CoreData_UIKit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LkG-vO-h3R" id="t2H-bL-r6Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="81"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9d-sF-X2C">
+                                                    <rect key="frame" x="20" y="11" width="100" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="1cZ-gS-xsB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JxK-fQ-HNf">
+                                                    <rect key="frame" x="20" y="36" width="100" height="13.333333333333336"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="mbv-8l-8nx"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="x9d-sF-X2C" firstAttribute="leading" secondItem="t2H-bL-r6Y" secondAttribute="leadingMargin" id="LrZ-21-HNw"/>
+                                                <constraint firstItem="JxK-fQ-HNf" firstAttribute="leading" secondItem="t2H-bL-r6Y" secondAttribute="leadingMargin" id="NEh-K5-h3H"/>
+                                                <constraint firstItem="JxK-fQ-HNf" firstAttribute="top" secondItem="x9d-sF-X2C" secondAttribute="bottom" constant="8" id="QSh-EW-yay"/>
+                                                <constraint firstItem="x9d-sF-X2C" firstAttribute="top" secondItem="t2H-bL-r6Y" secondAttribute="topMargin" id="fsi-Ml-XFw"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="x9d-sF-X2C" id="i8O-Lx-eHE"/>
+                                            <outlet property="statusLabel" destination="JxK-fQ-HNf" id="HND-AZ-qMo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -40,7 +70,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4RI-8D-xFb" secondAttribute="trailing" id="chJ-Pv-lLM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wZy-of-Thu">
+                    <navigationItem key="navigationItem" title="Employee Status" id="wZy-of-Thu">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="bZ7-BM-ly0">
                             <connections>
                                 <action selector="addTapped:" destination="BYZ-38-t0r" id="KEQ-Am-kO8"/>
@@ -58,7 +88,6 @@
         <!--Navigation Controller-->
         <scene sceneID="MIj-c3-tcy">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ghq-vU-KiL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C2L-IG-NC2" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zEk-f8-uPc">
@@ -70,6 +99,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qU5-yd-ibM"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ghq-vU-KiL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
         </scene>

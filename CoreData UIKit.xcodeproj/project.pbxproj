@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B09144B2864038B00E600B6 /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B09144A2864038B00E600B6 /* EmployeeTableViewCell.swift */; };
 		9BBA6E872862FD9A00973670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBA6E862862FD9A00973670 /* AppDelegate.swift */; };
 		9BBA6E892862FD9A00973670 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBA6E882862FD9A00973670 /* SceneDelegate.swift */; };
 		9BBA6E8B2862FD9A00973670 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBA6E8A2862FD9A00973670 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B09144A2864038B00E600B6 /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		9BBA6E832862FD9A00973670 /* CoreData UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoreData UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBA6E862862FD9A00973670 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BBA6E882862FD9A00973670 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B0914492864036B00E600B6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9B09144A2864038B00E600B6 /* EmployeeTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		9BBA6E7A2862FD9A00973670 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +72,7 @@
 		9BBA6E852862FD9A00973670 /* CoreData UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				9B0914492864036B00E600B6 /* Cell */,
 				9BBA6E9F2863003900973670 /* Model */,
 				9BBA6E862862FD9A00973670 /* AppDelegate.swift */,
 				9BBA6E882862FD9A00973670 /* SceneDelegate.swift */,
@@ -156,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BBA6E8B2862FD9A00973670 /* ViewController.swift in Sources */,
+				9B09144B2864038B00E600B6 /* EmployeeTableViewCell.swift in Sources */,
 				9BBA6ECA28638D2600973670 /* Employee+CoreDataClass.swift in Sources */,
 				9BBA6E872862FD9A00973670 /* AppDelegate.swift in Sources */,
 				9BBA6EA428638C0A00973670 /* CoreDataUIKit.xcdatamodeld in Sources */,

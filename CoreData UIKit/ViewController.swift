@@ -56,7 +56,7 @@ class ViewController: UIViewController {
             //create an Employee object
             let newEmployee = Employee(context: self.context)
             newEmployee.name = textfield?.text
-            newEmployee.isMarried = true
+            //newEmployee.isMarried = true
             
             //save the data
             do {
@@ -88,11 +88,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = employeeTable.dequeueReusableCell(withIdentifier: "employeeCell", for: indexPath)
+        let cell = employeeTable.dequeueReusableCell(withIdentifier: "employeeCell") as! EmployeeTableViewCell
         
         //get employee from the array and change the label
         let employee = self.items[indexPath.row]
-        cell.textLabel?.text = employee.name
+        cell.nameLabel.text = employee.name
+        cell.statusLabel.text = String(employee.isMarried)
         
         return cell
     }
