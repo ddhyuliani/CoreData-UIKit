@@ -48,8 +48,8 @@ class ViewController: UIViewController {
         alert.addTextField { (userNameTextField) in
             userNameTextField.placeholder = "Please input your name"
         }
-        alert.addTextField { (passwordTextField) in
-            passwordTextField.placeholder = "Please input your marriage status"
+        alert.addTextField { (statusTextField) in
+            statusTextField.placeholder = "Please input your marriage status"
         }
 
         //configure button
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
             let newEmployee = Employee(context: self.context)
             newEmployee.name = textfieldName?.text
             
-            //masih errorrrrrrrrrrrrrrrrr
+            //masih errorrrrrrrrrrrrrrrrr convert string dr textfield jadi value bool buat coredata
             newEmployee.isMarried = Bool((textfieldStatus?.text!)!)!
             
             //save the data
@@ -93,20 +93,23 @@ extension ViewController: UITableViewDelegate {
         
         //create Alert
         let alert = UIAlertController(title: "Edit employee", message: "Change name", preferredStyle: .alert)
-        
-        alert.addTextField()
+        alert.addTextField { (userNameTextField) in
+        }
+        alert.addTextField { (statusTextField) in
+        }
         
         //get the textfield for the alert
-        let textfield = alert.textFields?[0]
-        textfield?.text = employeeData.name
+        let textfieldName = alert.textFields?[0]
+        let textfieldStatus = alert.textFields?[1]
+        
+        textfieldName?.text = employeeData.name
+        textfieldStatus?.text = String(employeeData.isMarried)
         
         let saveButton = UIAlertAction(title: "Save", style: .default) { (action) in
             
-            //get the textfield for the alert
-            let textfield = alert.textFields?[0]
-            
             //edit name property of Employee object
-            employeeData.name = textfield?.text
+            employeeData.name = textfieldName?.text
+            employeeData.isMarried = ((textfieldStatus?.text) != nil)
             
             //save the data
             do {
